@@ -9,7 +9,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-var removeDuplicates = function (nums) {
+/* var removeDuplicates = function (nums) {
   for (let i = 0; i < nums.length - 1; ) {
     if (nums[i] === nums[i + 1]) {
       nums.splice(i + 1, 1)
@@ -18,5 +18,20 @@ var removeDuplicates = function (nums) {
     }
   }
   return nums.length
+} */
+
+//双指针解法
+var removeDuplicates = function (nums) {
+  let len = nums.length - 1
+  let start = 1
+  let run = 0
+  while (run < len) {
+    if (nums[run] !== nums[run + 1]) {
+      nums[start] = nums[run + 1]
+      ++start
+    }
+    ++run
+  }
+  return start
 }
 // @lc code=end
