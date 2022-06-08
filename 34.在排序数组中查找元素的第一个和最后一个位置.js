@@ -19,6 +19,8 @@ var searchRange = function (nums, target) {
     return [-1, -1]
   }
 
+  // 先找左边的开始位置
+
   while (left <= right) {
     let center = parseInt((left + right) / 2)
     if (nums[center] === target) {
@@ -32,6 +34,7 @@ var searchRange = function (nums, target) {
   }
   if (L === -1) return [-1, -1]
 
+  // 再找右边的结束位置
   left = 0
   right = nums.length - 1
   while (left <= right) {
