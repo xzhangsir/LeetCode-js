@@ -24,7 +24,7 @@ var romanToInt = function (s) {
     len = s.length
   for (let i = 0; i < len; i++) {
     let val = valueSymbols[s[i]]
-    if (i < len - 1 && val > valueSymbols[s[i + 1]]) {
+    if (i < len - 1 && val < valueSymbols[s[i + 1]]) {
       num -= val
     } else {
       num += val
