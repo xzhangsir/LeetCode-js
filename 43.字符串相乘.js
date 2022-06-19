@@ -10,9 +10,9 @@
  * @param {string} num2
  * @return {string}
  */
-//从低位高位一次相乘
 var multiply = function (num1, num2) {
-  let res = 0
+  //从低位到高位以此相乘 JS 大数运算会出错
+ /*  let res = 0
   let len1 = num1.length - 1
   let len2 = num2.length - 1
   for (let i = len1; i >= 0; i--) {
@@ -26,6 +26,23 @@ var multiply = function (num1, num2) {
     let idx = 10 ** (len1 - i)
     res += cols * idx
   }
-  return res + ''
+  return res + '' */
+  
+  let len1 = num1.length
+  let len2 = num2.length
+  let res = new Array(len1+len2).fill(0)
+  for (let i = len1-1; i >= 0; i--) {
+    for (let j = len2-1; j >= 0; j--) {
+      let sum = num1[i] * num2[j] + res[i+j+1] 
+      res[i+j+1] = sum%10 //计算当前位
+      res[i+j] = res[i+j] + parseInt(sum/10) //存储进位数到下一位
+    }
+  }
+
+  // 循环删 0
+  while (res[0] === 0) {
+    res.shift();
+  }
+  return res.length ? res.join('') : '0';
 }
 // @lc code=end
