@@ -26,14 +26,14 @@
 var inorderTraversal = function (root) {
   let res = []
   const func = (root) => {
-    if (root.val == null) {
+    if (root == null) {
       return
     }
     func(root.left)
     res.push(root.val)
     func(root.right)
   }
-  runc(root)
+  func(root)
   return res
 }
 // @lc code=end
