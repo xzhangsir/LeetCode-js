@@ -14,7 +14,7 @@ var generate = function (numRows) {
 
   for (let i = 0; i < numRows; i++) {
     let temp = new Array(i + 1).fill(1)
-    for (let j = 1; j < i - 1; j++) {
+    for (let j = 1; j < i; j++) {
       temp[j] = res[i - 1][j - 1] + res[i - 1][j]
     }
     res.push(temp)
