@@ -25,7 +25,7 @@ var longestPalindrome = function (s) {
     left = i - 1
     right = i + 1
 
-    while (s.charAt(i) === s.charAt(left)) {
+    while (left >= 0 && s.charAt(i) === s.charAt(left)) {
       left--
       currentLen++
     }
