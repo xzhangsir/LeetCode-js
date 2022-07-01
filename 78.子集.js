@@ -9,6 +9,7 @@
  * @param {number[]} nums
  * @return {number[][]}
  */
+// 二进制左移
 var subsets = function (nums) {
   let res = [],
     len = nums.length
