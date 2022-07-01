@@ -22,7 +22,6 @@ var mySqrt = function (x) {
     } else if (center * center > x) {
       right = center - 1
     }
-    console.log(left, right, center)
   }
   return res
 }
