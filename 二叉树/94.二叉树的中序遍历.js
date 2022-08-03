@@ -53,4 +53,20 @@ var inorderTraversal = function (root) {
   func(root)
   return res
 } */
+
+// 后序遍历
+/* var postorderTraversal = function (root) {
+  let res = []
+
+  const func = (root) => {
+    if (root == null) {
+      return
+    }
+    func(root.left)
+    func(root.right)
+    res.push(root.val)
+  }
+  func(root)
+  return res
+} */
 // @lc code=end
