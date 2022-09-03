@@ -18,7 +18,8 @@
  * @param {number} targetSum
  * @return {boolean}
  */
-var hasPathSum = function (root, targetSum) {
+// 队列 + 广度优先
+/* var hasPathSum = function (root, targetSum) {
   if (root === null) {
     return false
   }
@@ -44,5 +45,18 @@ var hasPathSum = function (root, targetSum) {
     }
   }
   return false
+} */
+// 递归
+var hasPathSum = function (root, targetSum) {
+  if (root.length === 0) {
+    return false
+  }
+  if (root.left === null && root.right === null) {
+    return targetSum === root.val
+  }
+  return (
+    hasPathSum(root.left, targetSum - root.val) ||
+    hasPathSum(root.right, targetSum - root.val)
+  )
 }
 // @lc code=end
