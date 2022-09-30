@@ -21,5 +21,11 @@ var fib = function (n) {
     res = (n_1 + n_2) % 1000000007
   }
   return res
+
+  /*  var fibnacci = (n) => {
+    if (n === 0) return [0, 1]
+    return (([a, b]) => [b, (a + b) % 1000000007])(fibnacci(n - 1))
+  }
+  return fibnacci(n)[0] */
 }
 // @lc code=end
