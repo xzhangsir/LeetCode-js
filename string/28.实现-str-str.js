@@ -28,6 +28,7 @@
   return -1
 } */
 // KMP算法
+/**
 var strStr = function (haystack, needle) {
   // a b a b a b a b c a         a b a b a b c a
   // 0 1 2 3 4 5 6 7 8 9         0 1 2 3 4 5 6 7
@@ -70,4 +71,50 @@ function getPMT(pat) {
 
   return next
 }
+ */
+// 重写KMP算法
+var strStr = function (haystack, needle) {
+  let table = new Array(needle.length).fill(0)
+  {
+    let i = 1,
+      j = 0
+    while (i < needle.length) {
+      if (needle[i] === needle[j]) {
+        ++i, ++j
+        table[i] = j
+      } else {
+        if (j > 0) {
+          j = table[j]
+        } else {
+          ++i
+        }
+      }
+    }
+    console.log(table)
+  }
+  {
+    let i = 0,
+      j = 0
+    while (i < haystack.length) {
+      if (haystack[i] === needle[j]) {
+        ++i, ++j
+      } else {
+        if (j > 0) {
+          j = table[j]
+        } else {
+          ++i
+        }
+      }
+      if (j === needle.length) {
+        return true
+      }
+    }
+    return false
+  }
+}
+console.log(strStr('aabaaacx', 'aabaaac'))
+console.log(strStr('abcdadce', 'abcdabce'))
+console.log(strStr('abababcabababc', 'abababc'))
+console.log(strStr('abababcabababc', 'ababc'))
+console.log(strStr('sadbutsad', 'sad'))
 // @lc code=end
